@@ -15,12 +15,10 @@ namespace Bookish.Models
         public string Format { get; set; }
         public string Genre { get; set; }
         
-
         public BookModel(string title,string author)
         {
             Title = title;
             Author = author;
         }
-
     }
 }

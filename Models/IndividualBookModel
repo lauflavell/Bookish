@@ -15,6 +15,5 @@ namespace Bookish.Models
         //     Onloan,
         //     Overdue
         // }
-        
     } 
 }

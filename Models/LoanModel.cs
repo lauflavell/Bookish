@@ -12,7 +12,5 @@ namespace Bookish.Models
         public DateTime DateReturned { get; set; }
 
         public DateTime DueDate { get; set; }
-    }
-
-        
+    }      
 }
