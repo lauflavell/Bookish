@@ -5,7 +5,7 @@ namespace Bookish.Models
 {
     public class LoanModel
     {
-        public int LoanId { get; set; }
+        public int Id { get; set; }
         public DateTime DateLoaned { get; set; }
         public int IndividualBookId { get; set; }
         public int MemberId { get; set; }

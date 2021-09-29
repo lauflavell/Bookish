@@ -7,8 +7,15 @@
     <h1 class="display-4">Bookish</h1>
     <p>@foreach (var book in Model)
     {
-        <li>
-            <p>@book.Title, @book.Author</p>
+        <li class="listStyle">
+        
+            @Html.ActionLink(
+                linkText: book.Title,
+                actionName: "BookView",
+                routeValues: new {id=book.Id})
+            
+            <p>@book.Author</p>
+            <p>@book.Id</p>
         </li>
         
     }</p>

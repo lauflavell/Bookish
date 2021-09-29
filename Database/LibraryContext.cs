@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Bookish.Models;
 
-namespace Bookish.Models
+namespace Bookish.Database
 {
     public class LibraryContext : DbContext
     {
@@ -14,7 +15,7 @@ namespace Bookish.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=GRASSHOPPER;Database=BookishDatabase;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=localhost;Database=BookishDatabase;Trusted_Connection=True;");
         }
 
     }

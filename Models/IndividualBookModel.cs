@@ -5,7 +5,7 @@ namespace Bookish.Models
 {
     public class IndividualBookModel
     {
-        public int IndividualBookId { get; set; }
+        public int Id { get; set; }
         public int BookId { get; set; }
         public string Status { get; set; }
     }

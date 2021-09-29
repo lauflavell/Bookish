@@ -1,0 +1,20 @@
+@model BookModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bookish</h1>
+
+    <p>Is this working!!</p>
+    <h2>@Model.Title</h2>
+    <li>@Model.Author</li>
+    <li>Book ID: @Model.Id</li>
+    <li>ISBN: @Model.ISBN</li>
+    <li>Date Published: @Model.DatePublished.ToShortDateString()</li>
+    <li>Publisher: @Model.Publisher</li>
+    <li>Format: @Model.Format</li>
+    <li>Genre: @Model.Genre</li>
+
+    
+</div>

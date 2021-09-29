@@ -6,38 +6,37 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Bookish.Models;
+using Bookish.Services;
+
 namespace Bookish.Controllers
 {
     [Route("Books")]
     public class BookController : Controller
     {
 
-        static List<BookModel> BookList = new List<BookModel> 
-        {
-            
-        };
+        private readonly IBookService _bookService;
+
         private readonly ILogger<BookController> _logger;
 
-        public BookController(ILogger<BookController> logger)
+        public BookController(ILogger<BookController> logger, IBookService bookService)
         {
             _logger = logger;
+            _bookService = bookService;
         }
 
         public IActionResult Index()
         {
-            return View(
-                new List<BookModel> 
-                {
-                    new BookModel("Harry Potter and The Philospher's Stone", "J.K Rowling"),
-                    new BookModel("Harry Potter and The Chamber of Secrets", "J.K Rowling"),
-                    new BookModel("Harry Potter and The Prisoner of Azkaban", "J.K Rowling"),
-                    new BookModel("Harry Potter and The Order of the Phoneix", "J.K Rowling"),
-                    new BookModel("Harry Potter and The Half Blood Prince",  "J.K Rowling"),
-                    new BookModel("Harry Potter and The Deathly Hallows", "J.K Rowling")
-                }
-            );
+            return View(_bookService.getAllBooks());
+
         }
-    
+        [HttpGet("book")]
+        public IActionResult BookView(int id)
+        {
+            return View(_bookService.getBook(id));
+
+        }
+     
+
 
     }
 }
