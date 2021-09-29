@@ -8,12 +8,12 @@ namespace Bookish.Models
         public int IndividualBookId { get; set; }
         public int BookId { get; set; }
         public string Status { get; set; }
-   
-        // enum Status
-        // {
-        //     Available,
-        //     Onloan,
-        //     Overdue
-        // }
-    } 
+    }
+        enum Status
+        {
+            Available,
+            Onloan,
+            Overdue
+        }
+     
 }
