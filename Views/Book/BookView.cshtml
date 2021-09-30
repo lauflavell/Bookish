@@ -5,16 +5,62 @@
 
 <div class="text-center">
     <h1 class="display-4">Bookish</h1>
-
-    <p>Is this working!!</p>
-    <h2>@Model.Title</h2>
-    <li>@Model.Author</li>
-    <li>Book ID: @Model.Id</li>
-    <li>ISBN: @Model.ISBN</li>
-    <li>Date Published: @Model.DatePublished.ToShortDateString()</li>
-    <li>Publisher: @Model.Publisher</li>
-    <li>Format: @Model.Format</li>
-    <li>Genre: @Model.Genre</li>
-
-    
 </div>
+<table>
+    <tr>
+        <th>Title</th>
+        <td>@Model.Title</td>
+        <td>
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+        </td>
+    </tr>
+    <tr>
+        <th>Author</th>
+        <td>@Model.Author</td>
+        <td>
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+        </td>
+    </tr>
+    <tr>
+        <th>Book ID</th>
+        <td>@Model.Id</td>
+        <td>
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+        </td>
+    </tr>
+    <tr>
+        <th>ISBN</th>
+        <td>@Model.ISBN</td>
+        <td>
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+        </td>
+    </tr>
+    <tr>
+        <th>Date Published</th>
+        <td>@Model.DatePublished.ToShortDateString()</td>
+        <td>
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+        </td>
+    </tr>
+    <tr>
+        <th>Publisher</th>
+        <td>@Model.Publisher</td>
+        <td>
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+        </td>
+    </tr>
+    <tr>
+        <th>Format</th>
+        <td>@Model.Format</td>
+        <td>
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+        </td>
+    </tr>
+    <tr>
+        <th>Genre</th>
+        <td>@Model.Genre</td>
+        <td>
+            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+        </td>
+    </tr>
+</table>

@@ -29,7 +29,7 @@ namespace Bookish.Controllers
             return View(_bookService.getAllBooks());
 
         }
-        [HttpGet("book")]
+        [HttpGet("Book")]
         public IActionResult BookView(int id)
         {
             return View(_bookService.getBook(id));

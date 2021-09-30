@@ -5,18 +5,42 @@
 
 <div class="text-center">
     <h1 class="display-4">Bookish</h1>
+    <table>
+        <tr>
+            <th>Book ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Available Copies</th>
+        </tr>
     <p>@foreach (var book in Model)
     {
-        <li class="listStyle">
-        
-            @Html.ActionLink(
-                linkText: book.Title,
-                actionName: "BookView",
-                routeValues: new {id=book.Id})
-            
-            <p>@book.Author</p>
-            <p>@book.Id</p>
-        </li>
-        
-    }</p>
+        <tr>
+            <td>@book.Id</td>
+            <td>@book.Title</td>
+            <td>@book.Author</td>
+            <td>3</td>
+             <td>
+                @Html.ActionLink(
+                    linkText: "Details",
+                    actionName: "BookView",
+                    routeValues: new {id=book.Id}
+                ) |
+            </td>
+            <td>
+               @Html.ActionLink(
+                    linkText: "Copy",
+                    actionName: "BookView",
+                    routeValues: new {id=book.Id}
+                ) |
+            <td>
+                @Html.ActionLink(
+                    linkText: "Delete",
+                    actionName: "BookView",
+                    routeValues: new {id=book.Id}
+                ) 
+            </td>
+            </td>
+         </tr>     
+    }
+    </table>
 </div>
