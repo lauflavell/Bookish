@@ -5,69 +5,73 @@
 
 <div class="text-center">
     <h1 class="display-4">Bookish</h1>
+    @if (TempData["Success"] != null)
+{
+ <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+}
 </div>
-<table>
+<table class="table">
     <tr>
         <th>Title</th>
         <td>@Model.Title</td>
         <td>
-            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+            @Html.ActionLink("Edit", "Edit", new { id=Model.Id})
         </td>
     </tr>
     <tr>
         <th>Author</th>
         <td>@Model.Author.Name</td>
         <td>
-            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+            @Html.ActionLink("Edit", "Edit", new { id=Model.Id})
         </td>
     </tr>
     <tr>
         <th>Book ID</th>
         <td>@Model.Id</td>
         <td>
-            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+            @Html.ActionLink("Edit", "Edit", new { id=Model.Id})
         </td>
     </tr>
     <tr>
         <th>ISBN</th>
         <td>@Model.ISBN</td>
         <td>
-            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+            @Html.ActionLink("Edit", "Edit", new { id=Model.Id})
         </td>
     </tr>
     <tr>
         <th>Date Published</th>
         <td>@Model.DatePublished.ToShortDateString()</td>
         <td>
-            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+            @Html.ActionLink("Edit", "Edit", new { id=Model.Id})
         </td>
     </tr>
     <tr>
         <th>Publisher</th>
         <td>@Model.Publisher</td>
         <td>
-            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+             @Html.ActionLink("Edit", "Edit", new { id=Model.Id})
         </td>
     </tr>
     <tr>
         <th>Format</th>
         <td>@Model.Format</td>
         <td>
-            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+            @Html.ActionLink("Edit", "Edit", new { id=Model.Id})
         </td>
     </tr>
     <tr>
         <th>Genre</th>
         <td>@Model.Genre</td>
         <td>
-            | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
-        </td>
+            @Html.ActionLink("Edit", "Edit", new { id=Model.Id})
     </tr>
     <tr>
-        <th>Copies</th>
+        <td></td>
+        <td></td>
         <td>
             <form method = "post" asp-controller="book" asp-action="AddBookCopy">
-                <button type="submit">Add Copy</button>
+                <button class="btn btn-dark" type="submit">Add Copy</button>
                 <input type="hidden" id="@Model.Id" asp-for="Id" value="@Model.Id"/>
             </form>
         </td>

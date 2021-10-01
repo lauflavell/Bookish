@@ -5,7 +5,7 @@
 
 <div class="text-center">
     <h1 class="display-4">Bookish</h1>
-    <table>
+    <table class="table">
         <tr>
             <th>Book ID</th>
             <th>Title</th>
@@ -24,7 +24,7 @@
                     linkText: "Details",
                     actionName: "BookView",
                     routeValues: new {id=book.Id}
-                ) |
+                )
             </td>
             <td>
                 @Html.ActionLink(

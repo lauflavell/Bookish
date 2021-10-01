@@ -50,6 +50,7 @@ namespace Bookish.Controllers
         public IActionResult AddBookCopy(int id)
         {
             _bookService.AddBookCopy(id);
+            TempData["Success"] = "Copy Added Successfully!";
             return RedirectToAction("BookView","Book",new {id=id});
 
         }
