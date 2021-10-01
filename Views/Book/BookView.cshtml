@@ -16,7 +16,7 @@
     </tr>
     <tr>
         <th>Author</th>
-        <td>@Model.Author</td>
+        <td>@Model.Author.Name</td>
         <td>
             | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
         </td>
@@ -61,6 +61,15 @@
         <td>@Model.Genre</td>
         <td>
             | @Html.ActionLink("Edit", "Edit", new { id=Model.Id}) |
+        </td>
+    </tr>
+    <tr>
+        <th>Copies</th>
+        <td>
+            <form method = "post" asp-controller="book" asp-action="AddBookCopy">
+                <button type="submit">Add Copy</button>
+                <input type="hidden" id="@Model.Id" asp-for="Id" value="@Model.Id"/>
+            </form>
         </td>
     </tr>
 </table>

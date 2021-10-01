@@ -17,7 +17,7 @@
         <tr>
             <td>@book.Id</td>
             <td>@book.Title</td>
-            <td>@book.Author</td>
+            <td>@book.Author.Name</td>
             <td>3</td>
              <td>
                 @Html.ActionLink(
@@ -27,19 +27,13 @@
                 ) |
             </td>
             <td>
-               @Html.ActionLink(
-                    linkText: "Copy",
-                    actionName: "BookView",
-                    routeValues: new {id=book.Id}
-                ) |
-            <td>
                 @Html.ActionLink(
                     linkText: "Delete",
-                    actionName: "BookView",
+                    actionName: "DeleteBook",
                     routeValues: new {id=book.Id}
                 ) 
             </td>
-            </td>
+            
          </tr>     
     }
     </table>

@@ -7,11 +7,11 @@ namespace Bookish.Database
 {
     public class LibraryContext : DbContext
     {
-        public DbSet<BookModel> Books { get; set; }
-        public DbSet<IndividualBookModel> Book { get; set; }
-        public DbSet<AuthorModel> Authors { get; set; }
-        public DbSet<MemberModel> Members { get; set; }
-        public DbSet<LoanModel> Loans { get; set; }
+        public DbSet<BookModel> Book { get; set; }
+        public DbSet<BookCopyModel> BookCopy { get; set; }
+        public DbSet<AuthorModel> Author { get; set; }
+        public DbSet<MemberModel> Member { get; set; }
+        public DbSet<LoanModel> Loan { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

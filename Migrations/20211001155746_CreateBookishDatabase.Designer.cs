@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bookish.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20210929144717_CreateBookishDatabase")]
+    [Migration("20211001155746_CreateBookishDatabase")]
     partial class CreateBookishDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,15 +28,27 @@ namespace Bookish.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Author");
+                });
+
+            modelBuilder.Entity("Bookish.Models.BookCopyModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BookCopy");
                 });
 
             modelBuilder.Entity("Bookish.Models.BookModel", b =>
@@ -46,8 +58,8 @@ namespace Bookish.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Author")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DatePublished")
                         .HasColumnType("datetime2");
@@ -69,23 +81,7 @@ namespace Bookish.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("Bookish.Models.IndividualBookModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
+                    b.HasIndex("AuthorId");
 
                     b.ToTable("Book");
                 });
@@ -114,7 +110,7 @@ namespace Bookish.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Loans");
+                    b.ToTable("Loan");
                 });
 
             modelBuilder.Entity("Bookish.Models.MemberModel", b =>
@@ -135,7 +131,23 @@ namespace Bookish.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Members");
+                    b.ToTable("Member");
+                });
+
+            modelBuilder.Entity("Bookish.Models.BookModel", b =>
+                {
+                    b.HasOne("Bookish.Models.AuthorModel", "Author")
+                        .WithMany("Books")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+                });
+
+            modelBuilder.Entity("Bookish.Models.AuthorModel", b =>
+                {
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }
